@@ -55,3 +55,6 @@ file.
 Simply add test cases in `test/app_spec.js`.  On each test suite `SpecHelper.js`
 copies the `<div class='markup'>` element from `dist/index.html` into the test
 suite page.  So changing DOM outside of each test suite does not change the view.
+
+The `test` directory contains symbolic links to `node_modules` and `dist` to access
+some node modules and application codes.
