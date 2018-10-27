@@ -24,6 +24,6 @@ function resetFixture() {
   }
 }
 
-beforeEach(function () {
+beforeEach(function() {
   resetFixture();
 });

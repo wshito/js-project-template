@@ -3,15 +3,15 @@ JavaScript Project Template for SPA
 
 ## Description
 
-It is not fun to setup the build and testing environment when you want to start
-to code for a new project.  This is the very minimum project skelton with
-with the building and testing environment set up.  Initially the project does not
-depend on any SPA frameworks.  The project imports only lodash and jquery into index.js
-to provide the template for importing external libraries.
+It is not a fun thing to setup the environment for a new project.
+This project skelton is very minimum in a sense that it only provides
+the building and testing environment.  Nothing more.  The project does not even
+depend on any SPA frameworks.  Only lodash and jquery are imported into the
+main script `index.js`.
 
 The project uses Webpack4 to build and Jasmine for browser based testing.
-Since this project template is for SPA we manipulate DOM.  That's why the browser
-based testing is chosen rather than NodeJS based.
+Since this project template is for SPA in mind that manipulates DOM, we chose
+browser based testing.
 
 ```
 - dist
@@ -50,11 +50,16 @@ file.
 ## How to test
 
 - `npm run test` will start the another webserver and browser for Jasmine test
-  framework.
+  framework.  This will build the sources into the memory and does not write out
+  to `test/test-main.js`.  Use `npm run test-watch` or `npm run build`.
+- `npm run test-watch` will continuously build `test/app_apec.js` as the entry
+  point and bundles to `test/test-main.js` which is included from `test/index.html`.
+- `npm run test-build` will build `test/app_apec.js` as the entry point and writes
+  out the bundle to `test/test-main.js`.
 
 Simply add test cases in `test/app_spec.js`.  On each test suite `SpecHelper.js`
 copies the `<div class='markup'>` element from `dist/index.html` into the test
 suite page.  So changing DOM outside of each test suite does not change the view.
 
-The `test` directory contains symbolic links to `node_modules` and `dist` to access
-some node modules and application codes.
+The `test` directory contains symbolic links to `node_modules`, `dist` and `src`
+to access modules from the test scripts.
