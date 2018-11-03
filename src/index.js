@@ -1,3 +1,4 @@
+import "./css/style.css";
 import _ from 'lodash';
 import $ from 'jquery';
 import { myMessage } from './util'; // import submodule

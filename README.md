@@ -9,6 +9,12 @@ the building and testing environment.  Nothing more.  The project does not even
 depend on any SPA frameworks.  Only lodash and jquery are imported into the
 main script `index.js`.
 
+The project template also provides some example files:
+
+- `util.js` as a module to be imported from `index.js`
+- `style.css` as a css file to be bundled.  This css imports `normalize.css`
+  and `skeleton.css` initially.
+
 The project uses Webpack4 to build and Jasmine for browser based testing.
 Since this project template is for SPA in mind that manipulates DOM, we chose
 browser based testing.
@@ -18,6 +24,9 @@ browser based testing.
   - index.html     The landing page of SPA
 - src
   - index.js       The entry point of JavaScript
+  - util.js        The module imported from index.js
+  - css
+    - style.css    The main css file to be imported from index.js to be bundled
 - test
   - index.html     Jasmine test suite top page
   - app_spec.js    Jasmine test cases
@@ -36,24 +45,27 @@ depends on.
 
 - `npm run build` will build `dist/main.js`
 - `npm run watch` will continuously build `dist/main.js` upon file changes.
-- `npm start` will start the webserver and the browser for hot reloading.
+- `npm run start` will start the webserver and the browser for hot reloading.
   Note that this will build the sources into the meomry and does not write out
-  `dist/main.js`.  So when you run the test cases that depends on `dist/main.js`
-  you should use `npm run watch` or `npm run build` instead.
+  `dist/main.js`.  So if your test cases depends on `dist/main.js` you should
+  use `npm run watch` or `npm run build` instead.
 
 Your JS code goes to `src/index.js` which will be bundled and written out to
 `dist/main.js`.
 
-`dist/index.html` is the application's page that includes the bundled `dist/main.js`
+Your CSS goes to `src/css/style.css` which will be bundled and written out to
+`dist/main.js` by style-lader and css-loader.
+
+`dist/index.html` is the application page that includes the bundled `dist/main.js`
 file.
 
 ## How to test
 
 - `npm run test` will start the another webserver and browser for Jasmine test
   framework.  This will build the sources into the memory and does not write out
-  to `test/test-main.js`.  Use `npm run test-watch` or `npm run build`.
+  to `test/test-main.js`.  Use `npm run test-watch` or `npm run build` instead.
 - `npm run test-watch` will continuously build `test/app_apec.js` as the entry
-  point and bundles to `test/test-main.js` which is included from `test/index.html`.
+  point and bundles it to `test/test-main.js` which is included from `test/index.html`.
 - `npm run test-build` will build `test/app_apec.js` as the entry point and writes
   out the bundle to `test/test-main.js`.
 

@@ -1,0 +1,11 @@
+@import url("../../node_modules/normalize.css/normalize.css");
+@import url("../../node_modules/skeleton-css/css/skeleton.css");
+
+.menu-container {
+  margin: 10pt;
+  font-size: 20pt;
+}
+
+.view-container {
+  margin: 10pt;
+}
